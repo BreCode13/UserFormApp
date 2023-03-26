@@ -1,0 +1,240 @@
+<!-- MDN was utilize to document the excercises and to explain them
+
+https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started -->
+
+<!-- Excercise 1 Udemy Course  -->
+<!-- For this excercise it asked to aff the missing logic to the function transformToObject and return the value -->
+
+<!-- I added a number array into the parameters that will be passed through the function.  -->
+
+<!-- 
+Next I created a return and used the .map method (this is a method that creates a new array populated with the results of calling a provided function on every element in the calling array. Source MDN ) -->
+<!-- 
+
+function transformToObjects(numberArray) {
+    return numberArray.map(number => {
+     return {val: number}
+    }); -->
+
+<!-- Excercise 2 -->
+<!-- Edit the JSX (HTML-in-JavaScript syntax called JSX ) Code -->
+
+<!-- Import Satement-Is at the top of the file allow App.js to use code that has been defined elsewhere.  -->
+<!--  
+Insert a h1 tag into the JSX syntax -->
+
+<!-- import React from 'react';
+
+// don't change the Component name "App"
+export default function App() {
+    return (
+        <div>
+            <p>Practicing React...</p>
+        </div>
+    );
+} -->
+
+<!-- 
+import React from 'react'; -->
+<!-- 
+Answer -->
+
+<!-- export default function App() {
+    return (
+        <div>
+        <h1>Exercise done!</h1>
+            <p>Practicing React...</p>
+        </div>
+    );
+} -->
+
+<!-- 
+Excercise 3 Building First Component -->
+<!-- 
+import React from 'react';
+// Todo: Add your component code
+// Important: Use export default function MyCmp() { ... }, don't define "export default" on a separate line!
+function ExerciseComponent() {
+    return <p>First exercise - done!</p>;
+    // Todo: Add returned JSX code
+} -->
+
+<!-- 
+First I had to utilize the ExcerciseComponent.js file to insert the code -->
+<!-- 
+Componets are a reusable module that renders a part of our app.  -->
+
+<!-- To get the ExcerciseComponent.js file to render on the App.js I must import it on the App.js  -->
+
+<!-- 
+Example below: -->
+<!-- 
+import ExerciseComponent from './ExerciseComponent'; -->
+
+<!-- export default ExerciseComponent;
+
+The export default makes our App component available to other modules. -->
+
+<!-- 
+Exercise 4: Passing Data via "props" 
+task is to output two product items (via the <Product /> component you find in the Product.js file) below the main page title ("My Demo Shop") in the App component. -->
+
+<!-- 
+Props are a way of passing data into a component (which can then be accessed using variables). -->
+
+<!-- Product.js
+
+
+import React from 'react';
+
+export default function Product(props) {
+    return (
+        <article className="product">
+            <h2>{props.title}</h2>
+            <p className="price">${props.price}</p>
+            <p>{props.description}</p>
+        </article>
+    );
+} -->
+
+<!-- App.js -->
+<!-- 
+import React from 'react';
+
+import Product from './Product';
+import './styles.css';
+
+// don't change the Component name "App"
+export default function App(props) {
+    return (
+        <div>
+            <h1>My Demo Shop</h1>
+            //Product item 1 added
+            <Product title="Product 1" price="10" description="First product" />
+
+            //product item 2 added
+            <Product title="Product 2" price="20" description="Second product" />
+         
+
+        </div>
+    );
+} -->
+
+<!-- Exercise 5: Listening to Events 
+    
+    To start with your work, your task is to "connect" a click event listener to an already existing button and output "Stored!" via console.log(). And, of course, you should do that "the React way".
+-->
+
+<!--
+    eventHandler-  Event handlers determine what action is to be taken whenever an event is fired. This could be a button click or a change in a text input. 
+    
+    onClick- The React onClick event handler enables you to call a function and trigger an action when a user clicks an element, such as a button, in your app.
+    
+    Event names are written in camelCase, so the onclick event is written as onClick in a React app. In addition, React event handlers appear inside curly braces.
+
+    Example: return <button onClick={clickHandler}>Bookmark</button>
+
+
+-->
+<!-- import React from 'react';
+ 
+import './styles.css';
+// don't change the Component name "App"
+
+export default function App() {
+    const clickHandler = () => {
+        console.log('Stored!');
+    }
+    
+    return <button onClick={clickHandler}>Bookmark</button>;
+} -->
+
+<!-- Exercise 6: Working with "State" 
+Your task is to add an event listener to listen for clicks on the button that's already included in the App component.
+
+state- 
+Track some of its own data for us, Data such as this, which a component itself owns, is called state.
+
+useState() Hook to register a state value, 
+this also returns the the state and and a function that can be used to update the state later 
+
+
+
+import React, { useState } from 'react';
+ 
+import './styles.css';
+ 
+export default function App() {
+    const [price, setPrice] = useState(100);
+    
+    function clickHandler() {
+        setPrice(75);
+    }
+    
+    return (
+        <div>
+            <p>${price}</p>
+            <button onClick={clickHandler}>Apply Discount</button>
+        </div>
+    );
+-->
+<!-- 
+Excercise 7- Use State with form inputs  -->
+<!-- 
+import React from 'react';
+ 
+import './styles.css';
+ 
+ don't change the Component name "App"
+
+export default function App() {
+    const [messageValidity, setMessageValidity] = React.useState('Invalid');
+    
+    function messageChangeHandler(event) {
+        const value = event.target.value;
+
+        //if the meessage enterd is invalid, if shorter than 3 characters long then text should say invalid message
+        
+        if (value.trim().length < 3) {
+            setMessageValidity('Invalid')
+
+
+          //if the meessage enterd is valid, if it at least 3 characters long then text should say valid message
+        } else {
+            setMessageValidity('Valid');
+        }
+  -->
+
+<!-- add a fitting event listener that triggers the code that updates the state
+
+
+        add the onChange prop to the input to update state, the onChange must be connected to a function, that should be excuted when the event is triggered...add a messageChangeHandler()
+
+        event.target.value = this pulls the entered value...then updates conditinally
+     -->
+<!-- return (
+        <form>
+            <label>Your message</label>
+            <input type="text" onChange={messageChangeHandler} />
+            <p>{messageValidity} message</p>
+        </form>
+    );
+} --> -->
+
+<!-- 
+Excercise 8: Updating State Based on Older State
+
+Your task is to build a basic counter that should increment whenever the "Increment" button is clicked.
+
+
+
+
+
+
+
+
+
+
+
+
+-->
